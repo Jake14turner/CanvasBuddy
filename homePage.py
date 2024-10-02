@@ -7,9 +7,37 @@ from loginPage import isLoggedIn
 
 
 def homePageView():
-    st.title("Home Page")
-    st.write("Welcome! You are logged in.")
-#    username = st.session_state.username
+    
+    #the first thing we need to do is make the user enter their key and then write that to their name in the database
+    st.text("Lets start off by connecting your canvas account. Please input your canvas token:")
+    #put the users token into token
+    token = ""
+    token = st.text_input("Please enter your token")
+    testToken = ""
+    
+    if st.button("Submit token"):
+
+       
+        testToken = ""
+        username = st.session_state.username
+        #connect to the sqlite database and put the users token in
+        connection = sqlite3.connect('streamlitBase')
+        connect = connection.cursor()
+        connect.execute('''UPDATE users SET key = ? WHERE username = ? ''', (token, username))
+        connection.commit()
+        connect.execute('''SELECT key FROM users WHERE username = ?''', (username,))
+        testToken = connect.fetchone()
+    if testToken == token:
+            st.success("Succesfully saved token")
+        
+
+
+
+#This is the code to retreive a specific users token
+    #connect.execute('''SELECT key FROM users WHERE username = ?''', (username,))
+    #testToken = connect.fetchone()
+
+
 
     
 
