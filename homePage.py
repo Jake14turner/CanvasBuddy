@@ -21,9 +21,9 @@ def homePageView():
 
 
 
-   # data = {"message": "Hello from Python!"}
-  #  with open('data.json', 'w') as f:
-  #  json.dump(data, f)
+    data = {"message": "Hello from Python!"}
+    with open('data.json', 'w') as f:
+        json.dump(data, f)
 
     username = st.session_state.username
 
