@@ -4,6 +4,7 @@ import hashlib
 from loginPage import isLoggedIn
 import requests
 import streamlit.components.v1 as components
+import json
 
 
 st.session_state.bool1 = False
@@ -17,6 +18,12 @@ connection = sqlite3.connect('streamlitBase')
 connect = connection.cursor()
 
 def homePageView():
+
+
+
+    data = {"message": "Hello from Python!"}
+    with open('data.json', 'w') as f:
+    json.dump(data, f)
 
     username = st.session_state.username
 
