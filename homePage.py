@@ -3,6 +3,7 @@ import sqlite3 as sqlite3
 import hashlib
 from loginPage import isLoggedIn
 import requests
+import streamlit.components.v1 as components
 
 
 st.session_state.bool1 = False
