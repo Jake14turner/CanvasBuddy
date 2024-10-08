@@ -516,6 +516,12 @@ def homePageView():
         """
         components.html(html_code, height=840, width=1000)          
 
+        with open('data.json', 'r') as file:
+            data = json.load(file)
+
+
+        st.text(data['message']) 
+
 
 
 
