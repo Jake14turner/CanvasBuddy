@@ -16,7 +16,7 @@ todopage = st.Page("todopage.py", title = "To do page")
 
 
 
-pg = st.navigation([registerPage, loginPage, homePage])
+pg = st.navigation([registerPage, loginPage, homePage, todopage])
 
 pg.run()
 
