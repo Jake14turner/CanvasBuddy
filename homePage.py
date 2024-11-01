@@ -783,7 +783,7 @@ function getEvents(){
         
         """
 
-            components.html(calendarHTML, height=840, width=700)
+            components.html(calendarHTML, height=840, width=1000)
         elif st.session_state.view == "Custom Schedule":
             st.text("In order to get the most ")
             
