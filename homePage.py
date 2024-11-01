@@ -27,7 +27,7 @@ def homePageView():
     username = st.session_state.username
 
     checkForUserKey(username)
-    
+
     #connection point between UI and User. We call user function to return a json file for the UI to display
     if st.session_state.hasKey == True:
         
@@ -44,6 +44,7 @@ def homePageView():
                 st.session_state.view = "Custom Schedule"
 
         if st.session_state.view == "Calendar":
+            #this is the user components responsiblity: to get all of the users information from canvas and store it into json form in "data"
             data = initializeUserInfoJSON(username)
             calendarHTML = f"""
         <style>
@@ -474,16 +475,7 @@ def homePageView():
                 }});
             }});
 
-     
-            const listElement = document.getElementById('assignmentList');
-            assignmentsArray.forEach(assignment => {{
-                const listItem = document.createElement('li');
-                listItem.textContent = `${{assignment.name}} - Due: ${{assignment.dueDate}}`;
-                listElement.appendChild(listItem);
-         }});
 
-        // Call the function to display the assignments
-        displayAssignments();
 
         /////////////////     array of assignments now exists as "assignmentsArray"      ////////////
         //now you just need to loop through the assignments array, sort them by date, and then display them on the calender.
@@ -518,6 +510,5 @@ if st.session_state.isLoggedIn:
     homePageView()
 else:
     st.text("Please log in to view home page.")
-
 
 
